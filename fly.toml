@@ -1,4 +1,4 @@
-app = "fly-coredns"
+app = "channelsdvrnet-dns"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
