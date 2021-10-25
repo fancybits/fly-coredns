@@ -1,7 +1,18 @@
 u.channelsdvr.net:53 {
     template IN A {
-        match ^(?P<a>[0-9]*)[-.](?P<b>[0-9]*)[-.](?P<c>[0-9]*)[-.](?P<d>[0-9]*)[.]ip[.][0-9a-f]+[.]u[.]channelsdvr[.]net[.]$
+        match ^(?P<a>[0-9]*)[-](?P<b>[0-9]*)[-](?P<c>[0-9]*)[-](?P<d>[0-9]*)[.][0-9a-f]+[.]u[.]channelsdvr[.]net[.]$
         answer "{{ .Name }} 604800 IN A {{ .Group.a }}.{{ .Group.b }}.{{ .Group.c }}.{{ .Group.d }}"
+        fallthrough
+    }
+    template IN ANY {
+        match ^(?P<user>[0-9a-f]+)[.]u[.]channelsdvr[.]net[.]$
+        answer "{{ .Name }} 3600 IN CNAME {{ .Group.user }}.x.channelsdvr.net."
+        fallthrough
+    }
+    template IN ANY {
+        match ^_acme-challenge[.](?P<user>[0-9a-f]+)[.]u[.]channelsdvr[.]net[.]$
+        answer "{{ .Name }} 3600 IN CNAME _acme-challenge.{{ .Group.user }}.x.channelsdvr.net."
+        fallthrough
     }
     log
 }
