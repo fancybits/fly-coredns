@@ -4,15 +4,6 @@ u.channelsdvr.net:53 {
         answer "{{ .Name }} 604800 IN A {{ .Group.a }}.{{ .Group.b }}.{{ .Group.c }}.{{ .Group.d }}"
         fallthrough
     }
-    template IN ANY {
-        match ^(?P<user>[0-9a-f]+)[.]u[.]channelsdvr[.]net[.]$
-        answer "{{ .Name }} 3600 IN CNAME {{ .Group.user }}.x.channelsdvr.net."
-        fallthrough
-    }
-    template IN ANY {
-        match ^_acme-challenge[.](?P<user>[0-9a-f]+)[.]u[.]channelsdvr[.]net[.]$
-        answer "{{ .Name }} 3600 IN CNAME _acme-challenge.{{ .Group.user }}.x.channelsdvr.net."
-        fallthrough
-    }
+    forward u.channelsdvr.net 162.159.24.4 162.159.25.4 162.159.26.4 162.159.27.4 # ns[1-4].dnsimple.com
     log
 }
