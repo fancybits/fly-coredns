@@ -1,3 +1,11 @@
+# Wildcard DNS resolver for u.channelsdvr.net
+
+Resolves 1-1-1-1.xxx.u.channelsdvr.net to 1.1.1.1
+
+All other requests are forwarded to ns[1-4].dnsimple.com
+
+----
+
 # Authoritative DNS on Fly
 
 In this guide we're going to get a globally-distributed authoritative, redundant DNS service using [CoreDNS](https://coredns.io/) set up on fly.io in a few simple steps. We assume that you currently hold a domain which you would like to host nameservers for. In the rest of this guide we will use the domain `example.com`, which you should be able to substitute with your own domain.
