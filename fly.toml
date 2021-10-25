@@ -3,6 +3,10 @@ app = "channelsdvrnet-dns"
 kill_signal = "SIGINT"
 kill_timeout = 5
 
+[metrics]
+port = 9153
+path = "/metrics"
+
 [[services]]
   internal_port = 53
   protocol = "udp"
