@@ -13,3 +13,10 @@ path = "/metrics"
 
   [[services.ports]]
     port = 53
+
+[[services]]
+  internal_port = 53
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 53
