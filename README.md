@@ -1,8 +1,8 @@
 # Wildcard DNS resolver for u.channelsdvr.net
 
-Resolves 1-1-1-1.xxx.u.channelsdvr.net to 1.1.1.1
+Resolves `1-1-1-1.xxx.u.channelsdvr.net` to `1.1.1.1`
 
-All other requests are forwarded to ns[1-4].dnsimple.com
+All other requests are forwarded to `ns[1-4].dnsimple.com`
 
 ----
 
